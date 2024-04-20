@@ -23,10 +23,10 @@
     </nav>
 
     <div class="container h-100 mt-5">
-        <div class="row h-100 justify-content-center align-items-center" enctype="multipart/form-data">
+        <div class="row h-100 justify-content-center align-items-center">
             <div class="col-10 col-md-8 col-lg-6">
                 <h3>Add a Product</h3>
-                <form action="{{ route('products.store') }}" method="post">
+                <form action="{{ route('products.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="name">Name</label>

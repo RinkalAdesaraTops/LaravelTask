@@ -36,17 +36,21 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'name' => 'required|max:255',
             'price' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif',
           ]);
-         $image = $request->file('image');
-          dd($image);
+          $image = $request->file('image');
           $imageName = time().'.'.$image->extension();
           $image->move(public_path('images'), $imageName);
-          $request->image = $imageName;
-          Product::create($request->all());
+
+          Product::create([
+            'name' => $request->name,
+            'price' => $request->price,
+            'image' => $imageName
+          ]);
           return redirect()->route('products.index')
             ->with('success', 'Product created successfully.');
     }

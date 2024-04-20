@@ -41,7 +41,7 @@ integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6
                 @foreach ($products as $pr)
               <tr>
                 <th scope="row">{{$pr->id}}</th>
-                <td><img src="upload/{{$pr->image}}" height="30px" width="50px"/></td>
+                <td><img src="images/{{$pr->image}}" height="30px" width="50px"/></td>
                 <td>{{$pr->name}}</td>
                 <td>{{$pr->price}}</td>
                 <td>
